@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "build": "rollup -c",
+    "start": "rollup -c -w",
+    "serve": "http-server dist"
+  },
+  "devDependencies": {
+    "@rollup/plugin-html": "^1.0.4",
+    "http-server": "^14.1.1",
+    "rollup": "^2.79.2",
+    "rollup-plugin-css-only": "^4.5.2",
+    "rollup-plugin-html": "^0.2.1"
+  }
+}

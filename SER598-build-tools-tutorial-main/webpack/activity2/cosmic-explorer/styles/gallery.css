@@ -1,0 +1,24 @@
+#gallery {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .gallery-item {
+    width: 200px;
+    text-align: center;
+    background: #111;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  .gallery-item img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  .gallery-item h2 {
+    margin: 0;
+    font-size: 1.2em;
+    text-shadow: 0 0 5px #fff;
+  }
+  

@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+      "target": "ESNext",                 
+      "module": "ESNext",                 
+      "strict": true,                     
+      "esModuleInterop": true,            
+      "skipLibCheck": true,               
+      "forceConsistentCasingInFileNames": true,
+      "moduleResolution": "node",         
+    },
+    "include": ["src/**/*"],              // Include all files in src
+    "exclude": ["node_modules", "dist"]   // Exclude unnecessary folders
+}

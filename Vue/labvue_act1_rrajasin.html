@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>A self-contained no build tools Vue 3 app</title>
+    <h2>Answer me these questions 3:</h2>
+  </head>
+  <body>
+    <script src="https://unpkg.com/vue@3"></script>
+
+    <div id="app">
+      <label>What is your name?</label><br>
+      <input type="text" v-model="answers.name" @input="checkResponses"><br><br>
+  
+      <label>What is your quest?</label><br>
+      <input type="text" v-model="answers.quest" @input="checkResponses"><br><br>
+  
+      <label>{{ currentQuestion }}</label><br>
+      <input type="text" v-model="answers.favorite" @input="checkResponses"><br><br>
+  
+      <p v-if="message">{{ message }}</p><br>
+  
+      <button @click="resetSurvey">Go again</button>
+    </div>
+  
+    <script>
+      Vue.createApp({
+        data() {
+          return {
+            questions: [
+              "What is your favorite color?",
+              "What is the airspeed velocity of an unladen swallow?"
+            ],
+            answers: { name: '', quest: '', favorite: '' },
+            currentQuestionIndex: 0,
+            message: ''
+          };
+        },
+        computed: {
+          currentQuestion() {
+            return this.questions[this.currentQuestionIndex];
+          }
+        },
+        methods: {
+          checkResponses() {
+            const responses = Object.values(this.answers);
+        if (responses.includes("idk")) {
+          this.message = "Knight: AAAAAAAAHHHHHHHHHHH!!!";
+        } 
+          else if (responses.every(answer => answer.length > 0)) {
+                  this.message = "Bridgekeeper: Alright, off you go then.";
+        } 
+              else {
+                  this.message = ''; // To hide the blank message tag showing up in initial state
+        }
+          },
+          resetSurvey() {
+            this.answers = { name: '', quest: '', favorite: '' };
+            this.currentQuestionIndex = 1 - this.currentQuestionIndex; //switch between 0 & 1 for color & velocity
+            this.message = '';
+          }
+        }
+      }).mount('#app');
+    </script>
+  </body>
+</html>

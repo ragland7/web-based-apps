@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Grocery Items</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" />
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 50%;
+      }
+      table, th, td {
+        border: 1px solid black;
+      }
+      th, td {
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>Groceries Selected</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Identifier</th>
+          <th>Name</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Iterate through the selected items -->
+        <tr th:each="item : ${selecteditems}">
+          <td th:text="${item.id}">ID</td>
+          <td th:text="${item.name}">Name</td>
+          <td th:text="${item.price}">Price</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="2"><strong>Total Price:</strong></td>
+          <!-- Round the total price to 2 decimal places -->
+          <td th:text="${#numbers.formatDecimal(totalPrice, 1, 2)}">Total</td>
+        </tr>
+      </tfoot>
+    </table>
+    <br/>
+    <a href="./applyDiscounts">Apply Discounts</a> or <a href="./groceries">Go Back</a>
+  </body>
+</html>

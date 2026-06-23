@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Apply Discounts</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" />
+  </head>
+  <body>
+    <h2>Apply Discounts to Your Cart</h2>
+    <form method="post" action="/applyDiscounts">
+      <ul>
+        <li th:each="coupon : ${coupons}">
+          <label>
+            <input type="checkbox" th:value="${coupon.id}" th:name="selectedCoupons" />
+            <span th:text="${coupon.name} + ' - ' + coupon.savings + ' off'"></span>
+          </label>
+        </li>
+      </ul>
+      <button type="submit">Apply Discounts</button>
+    </form>
+    <br />
+    <a href="./processed">Go Back to Cart</a>
+  </body>
+</html>
